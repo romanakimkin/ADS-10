@@ -6,10 +6,12 @@ template<typename T, int size>
 class TPQueue {
  private:
     T arr[size] = { 0 };
-    int last, first;
+    int last;
+    int first;
+    int i;
  public:
     void push(T x) {
-    int i = last;
+    i = last;
     for (; (i >= first) && arr[i % size].prior < x.prior; --i) {
       arr[(i+1) % size] = arr[i % size];
      }
