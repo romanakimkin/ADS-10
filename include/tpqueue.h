@@ -8,10 +8,9 @@ class TPQueue {
     T arr[size] = { 0 };
     int last;
     int first;
-    int i;
  public:
     void push(T x) {
-    i = last;
+    int i = last;
     for (; (i >= first) && arr[i % size].prior < x.prior; --i) {
       arr[(i+1) % size] = arr[i % size];
      }
