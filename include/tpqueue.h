@@ -4,7 +4,21 @@
 
 template<typename T, int size>
 class TPQueue {
-  // реализация шаблона очереди с приоритетом на кольцевом буфере
+  private:
+  T arr[size] = { 0 };
+  int last, first;
+ public:
+  void push() {
+   int i = last;
+   for (; (i >= first) && arr[i % size].prior < x.prior; --i) {
+    arr[(i+1) % size] = arr[i % size];
+   }
+   arr[(i + 1) % size] = x;
+   ++last;
+  }
+  T pop() {
+    return arr[(first++) % size];
+  }
 };
 
 struct SYM {
