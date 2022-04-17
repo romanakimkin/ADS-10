@@ -4,20 +4,20 @@
 
 template<typename T, int size>
 class TPQueue {
-  private:
-  T arr[size] = { 0 };
-  int last, first;
+ private:
+    T arr[size] = { 0 };
+    int last, first;
  public:
-  void push() {
-   int i = last;
-   for (; (i >= first) && arr[i % size].prior < x.prior; --i) {
-    arr[(i+1) % size] = arr[i % size];
-   }
-   arr[(i + 1) % size] = x;
-   ++last;
+    void push(T x) {
+    int i = last;
+    for (; (i >= first) && arr[i % size].prior < x.prior; --i) {
+      arr[(i+1) % size] = arr[i % size];
+     }
+    arr[(i + 1) % size] = x;
+     ++last;
   }
-  T pop() {
-    return arr[(first++) % size];
+    T pop() {
+      return arr[(first++) % size];
   }
 };
 
